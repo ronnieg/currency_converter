@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Currency Converter</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.currency_from.label }}<br>
+            {{ form.currency_from }}<br>
+            {% for error in form.currency_from.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.currency_to.label }}<br>
+            {{ form.currency_to }}<br>
+            {% for error in form.currency_to.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.currency_count.label }}<br>
+            {{ form.currency_count(size=32) }}<br>
+            {% for error in form.currency_count.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
